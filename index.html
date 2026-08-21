@@ -1,13 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Essence - E-commerce Demo</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Essence Fragances - E-commerce Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="header">
+    <a href="#home" class="logo" data-nav="home">
+      <span class="brand-logo">
+        <svg width="32" height="43" viewBox="0 0 100 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="40" y="6" width="20" height="14" rx="3" stroke="var(--logo-gold)" stroke-width="2.2" />
+          <path d="M36 20 Q50 26 64 20" stroke="var(--logo-gold)" stroke-width="2.2" stroke-linecap="round" />
+          <path d="M42 20 C42 20 34 38 32 52 C29 71 29 96 29 106 C29 122 38 130 50 130 C62 130 71 122 71 106 C71 96 71 71 68 52 C66 38 58 20 58 20"
+            stroke="var(--logo-gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M24 100 C34 92 26 78 38 68 C50 58 42 46 52 34 C60 24 56 14 68 6"
+            stroke="var(--logo-gold)" stroke-width="1.9" stroke-linecap="round" fill="none" />
+          <ellipse cx="30" cy="92" rx="7" ry="3.2" transform="rotate(-35 30 92)" stroke="var(--logo-gold)" stroke-width="1.65" fill="none" />
+          <ellipse cx="40" cy="78" rx="7" ry="3.2" transform="rotate(30 40 78)" stroke="var(--logo-gold)" stroke-width="1.65" fill="none" />
+          <ellipse cx="34" cy="64" rx="7" ry="3.2" transform="rotate(-25 34 64)" stroke="var(--logo-gold)" stroke-width="1.65" fill="none" />
+          <ellipse cx="48" cy="52" rx="7" ry="3.2" transform="rotate(35 48 52)" stroke="var(--logo-gold)" stroke-width="1.65" fill="none" />
+          <ellipse cx="46" cy="38" rx="7" ry="3.2" transform="rotate(-30 46 38)" stroke="var(--logo-gold)" stroke-width="1.65" fill="none" />
+          <ellipse cx="58" cy="26" rx="7" ry="3.2" transform="rotate(30 58 26)" stroke="var(--logo-gold)" stroke-width="1.65" fill="none" />
+          <ellipse cx="60" cy="14" rx="7" ry="3.2" transform="rotate(-20 60 14)" stroke="var(--logo-gold)" stroke-width="1.65" fill="none" />
+        </svg>
+        <span class="brand-wordmark">Essence <em>Fragances</em></span>
+      </span>
+    </a>
+
+    <nav class="nav-container">
+      <button class="nav-link" data-nav="home">Home</button>
+      <button class="nav-link" data-nav="shop">Shop</button>
+      <button class="nav-link" data-nav="sale">Sale</button>
+      <button class="nav-link" data-nav="showcase">Showcase</button>
+      <button class="nav-link" data-nav="about">About Us</button>
+      <button class="nav-link" data-nav="blog">Blog</button>
+    </nav>
+
+    <div class="actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+        <span class="theme-toggle-thumb" id="theme-thumb"></span>
+      </button>
+      <button class="icon-btn" id="cart-btn" aria-label="Shopping Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-badge" id="cart-badge" hidden>0</span>
+      </button>
+      <button class="btn-login" id="login-btn">Login</button>
+      <button class="btn-signup" id="signup-btn">Sign up</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <div class="badge reveal" style="animation-delay:.05s">Exclusive Oud Collection 2025</div>
+        <h1 class="reveal" style="animation-delay:.15s">Where essence speaks, tradition resonates,<br />luxury flourishes</h1>
+        <p class="reveal" style="animation-delay:.25s">Unveiling a fragrance destination where exotic Arabic blends seamlessly with your individual aura. Discover the liquid gold today.</p>
+        <button class="btn-primary reveal" style="animation-delay:.35s" data-nav="shop">New collection <span class="arrow">→</span></button>
+      </div>
+
+      <section class="carousel-section reveal" style="animation-delay:.4s">
+        <div class="carousel-viewport" id="carousel-viewport">
+          <button class="carousel-arrow carousel-arrow-left" id="carousel-prev" aria-label="Previous">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="carousel-arrow carousel-arrow-right" id="carousel-next" aria-label="Next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </section>
+
+      <div class="gallery-container">
+        <button class="nav-arrow" id="gallery-prev">←</button>
+        <div class="gallery accordion-gallery" id="gallery-items"></div>
+        <button class="nav-arrow" id="gallery-next">→</button>
+      </div>
+    </section>
+
+    <!-- PRODUCT DETAIL -->
+    <section class="page" id="page-product"></section>
+
+    <!-- SHOP -->
+    <section class="page placeholder-page" id="page-shop">
+      <h2>Shop All</h2>
+      <p>Explore our exclusive collection of fine Arabic perfumes and pure Oud.</p>
+      <div class="filter-bar" id="shop-filters">
+        <button class="filter-btn active" data-filter="All">All Collections</button>
+        <button class="filter-btn" data-filter="Unisex">Unisex Fragrances</button>
+        <button class="filter-btn" data-filter="Female">Female Fragrances</button>
+        <button class="filter-btn" data-filter="Male">Male Fragrances</button>
+      </div>
+      <div class="shop-grid" id="shop-grid"></div>
+    </section>
+
+    <!-- SALE -->
+    <section class="page placeholder-page" id="page-sale">
+      <h2>Special Offers</h2>
+      <p>Limited time discounts on our most exclusive blends.</p>
+      <div class="shop-grid" id="sale-grid"></div>
+    </section>
+
+    <!-- SHOWCASE -->
+    <section class="page placeholder-page" id="page-showcase" style="padding-top:2rem">
+      <h2>Showcase</h2>
+      <p style="margin-bottom:4rem">A visual journey through our most iconic releases.</p>
+      <div class="shop-grid showcase-grid" id="showcase-grid"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="page placeholder-page" id="page-about">
+      <div class="about-content">
+        <h2 style="font-size:3.5rem;margin-bottom:1.5rem">About Essence</h2>
+        <p style="color:var(--gray-text);font-size:1.2rem;line-height:1.8">
+          At Essence, we believe that fragrance is the ultimate invisible accessory.
+          Our curated collection of Arabic and Oud perfumes brings centuries of Middle Eastern
+          perfumery tradition to the modern connoisseur. Every bottle holds a story,
+          expertly crafted with the rarest and most precious ingredients sourced globally.
+        </p>
+        <div class="creators-box">
+          <h3>The Creators</h3>
+          <p style="font-size:1.5rem;font-weight:500">
+            Page Developed by <br />
+            <span class="name">Francesco Ramirez</span>
+            <span class="amp">&amp;</span>
+            <span class="name">Maximo Costa</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section class="page placeholder-page" id="page-blog">
+      <h2>Journal & Insights</h2>
+      <p>Discover the art of perfumery, ingredient stories, and styling guides.</p>
+      <div class="shop-grid" id="blog-grid"></div>
+    </section>
+  </main>
+
+  <!-- CART -->
+  <div class="modal-overlay cart-overlay" id="cart-overlay">
+    <aside class="cart-sidebar" onclick="event.stopPropagation()">
+      <div class="cart-header">
+        <h2>Your Cart (<span id="cart-count">0</span>)</h2>
+        <button class="modal-close" data-close="cart-overlay">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-footer" id="cart-footer" hidden>
+        <div class="cart-subtotal"><span>Subtotal</span><span id="cart-subtotal">$0.00</span></div>
+        <button class="btn-primary" style="width:100%;justify-content:center" id="checkout-btn">Secure Checkout</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- LOGIN -->
+  <div class="modal-overlay" id="login-overlay">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" data-close="login-overlay">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h2>Welcome to Essence</h2>
+      <p>Sign in to access your luxury fragrance collection.</p>
+      <input type="email" placeholder="Email address" class="modal-input" />
+      <input type="password" placeholder="Password" class="modal-input" />
+      <button class="btn-primary" style="width:100%;justify-content:center" data-close="login-overlay">Sign In</button>
+    </div>
+  </div>
+
+  <!-- CHECKOUT -->
+  <div class="modal-overlay" id="checkout-overlay">
+    <div class="modal-content payment-modal" onclick="event.stopPropagation()" id="checkout-content">
+      <button class="modal-close" id="checkout-close">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+
+      <div id="checkout-form-view">
+        <h2>Checkout</h2>
+        <p>Complete your purchase securely.</p>
+
+        <div class="card-perspective">
+          <div class="credit-card" id="credit-card">
+            <div class="credit-card-face credit-card-front">
+              <div class="cc-top-row">
+                <div class="cc-chip"></div>
+                <div class="card-brand-icon" id="card-brand-icon"></div>
+              </div>
+              <div class="cc-number" id="cc-number">•••• •••• •••• ••••</div>
+              <div class="cc-bottom-row">
+                <div>
+                  <span class="cc-label">Card Holder</span>
+                  <div class="cc-value" id="cc-name">YOUR NAME</div>
+                </div>
+                <div>
+                  <span class="cc-label">Expires</span>
+                  <div class="cc-value" id="cc-expiry">MM/YY</div>
+                </div>
+              </div>
+            </div>
+            <div class="credit-card-face credit-card-back">
+              <div class="cc-stripe"></div>
+              <div class="cc-cvc-row"><div class="cc-cvc-box" id="cc-cvc">•••</div></div>
+            </div>
+          </div>
+        </div>
+
+        <form class="payment-form" id="payment-form">
+          <input type="text" placeholder="Full name on card" class="modal-input" id="pay-name" />
+          <div class="input-with-icon">
+            <input type="text" inputmode="numeric" placeholder="Card number" maxlength="19" class="modal-input" id="pay-number" />
+            <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <div class="input-row">
+            <input type="text" inputmode="numeric" placeholder="MM/YY" maxlength="5" class="modal-input" id="pay-expiry" />
+            <input type="text" inputmode="numeric" placeholder="CVC" maxlength="3" class="modal-input" id="pay-cvc" />
+          </div>
+
+          <div class="payment-summary">
+            <span id="payment-summary-label">Total (0 items)</span>
+            <span id="payment-summary-total">$0.00</span>
+          </div>
+
+          <button type="submit" class="btn-primary btn-pay" id="pay-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span id="pay-btn-label">Pay $0.00</span>
+          </button>
+          <p class="payment-disclaimer">Demo checkout — no real payment is processed.</p>
+        </form>
+      </div>
+
+      <div id="checkout-success-view" class="payment-success" hidden>
+        <div class="success-check">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h2>Payment Successful</h2>
+        <p id="success-message"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="script.js"></script>
+</body>
 </html>
