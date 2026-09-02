@@ -47,6 +47,7 @@ const productos = [
         return respuesta.status(404).json({
             mensaje: "Producto no encontrado"
         });
+        console.log("error 404: pagina no encontrada");
       }
 app.get('/productos/:id', (req, res) => {
   const id = Number(req.params.id);
