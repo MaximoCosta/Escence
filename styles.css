@@ -844,6 +844,47 @@ button, input {
 .shop-card-info button:hover { filter: brightness(1.15); }
 .shop-card-info button:active { transform: scale(0.97); }
 
+#productos article {
+  background: var(--surface);
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s var(--ease);
+}
+
+#productos article:hover { transform: translateY(-8px); }
+
+#productos article img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+#productos article h3 {
+  margin: 1.25rem 1.5rem 0.4rem;
+}
+
+#productos article p {
+  color: var(--gray-text);
+  margin: 0 1.5rem 1rem;
+}
+
+#productos article a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: var(--surface-hover);
+  color: var(--text-color);
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  margin: auto 1.5rem 1.5rem;
+  transition: filter 0.3s ease;
+}
+
+#productos article a:hover { filter: brightness(1.15); }
+
 /* Blog / Showcase reuse shop-grid + shop-card */
 .blog-card p { color: var(--gray-text); margin-bottom: 1rem; font-size: 0.9rem; }
 .blog-tag { color: var(--accent-text); font-size: 0.8rem; margin-bottom: 0.5rem; display: block; }
@@ -871,7 +912,20 @@ button, input {
 .creators-box .amp { color: var(--gray-text); font-size: 1rem; display: block; margin: 0.5rem 0; }
 
 /* Payment / Checkout */
-.payment-modal { max-width: 440px; padding: 2.5rem; }
+#checkout-overlay {
+  overflow-y: auto;
+  align-items: flex-start;
+  padding: 1.5rem 1rem;
+}
+
+#checkout-overlay .payment-modal {
+  margin: auto;
+  max-width: 440px;
+  padding: 2.5rem;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
 
 .card-perspective { perspective: 1200px; margin-bottom: 1.75rem; }
 

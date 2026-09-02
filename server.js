@@ -40,6 +40,42 @@ const productos = [
     nombre: 'Golden Musk',
     precio: 95,
     imagen: 'https://images.unsplash.com/photo-1563170351-be82bc888aa4?auto=format&fit=crop&q=80&w=600&h=800'
+  },
+  {
+    id: 7,
+    nombre: 'Velvet Jasmine',
+    precio: 110,
+    imagen: 'https://images.unsplash.com/photo-1594032194509-0056023973b2?auto=format&fit=crop&q=80&w=600&h=800'
+  },
+  {
+    id: 8,
+    nombre: 'Spiced Leather',
+    precio: 160,
+    imagen: 'https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&q=80&w=600&h=800'
+  },
+  {
+    id: 9,
+    nombre: 'Amber Nuit',
+    precio: 175,
+    imagen: 'https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&q=80&w=600&h=800'
+  },
+  {
+    id: 10,
+    nombre: 'Black Orchid Extrait',
+    precio: 220,
+    imagen: 'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&q=80&w=600&h=800'
+  },
+  {
+    id: 11,
+    nombre: 'Taif Rose Absolute',
+    precio: 145,
+    imagen: 'https://images.unsplash.com/photo-1563170351-be82bc888aa4?auto=format&fit=crop&q=80&w=600&h=800'
+  },
+  {
+    id: 12,
+    nombre: 'Mystic Frankincense',
+    precio: 190,
+    imagen: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&q=80&w=600&h=800'
   }
 ];
 
