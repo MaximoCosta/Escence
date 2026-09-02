@@ -43,10 +43,11 @@ const productos = [
   }
 ];
 
-app.get('/productos', (req, res) => {
-  res.json(productos);
-});
-
+  if (!productos){
+        return respuesta.status(404).json({
+            mensaje: "Producto no encontrado"
+        });
+      }
 app.get('/productos/:id', (req, res) => {
   const id = Number(req.params.id);
   const producto = productos.find((item) => item.id === id);
