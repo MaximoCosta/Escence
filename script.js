@@ -289,8 +289,84 @@ function initShopFilters() {
 }
 
 function renderShopPage() {
-  const filtered = shopFilter === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.gender === shopFilter);
-  renderShopGrid('shop-grid', filtered, false);
+  loadShopProductos();
+}
+
+function apiProductoCardHTML(producto) {
+  return `
+    <div class="shop-card">
+      <img src="${producto.imagen}" alt="${producto.nombre}" />
+      <div class="shop-card-info">
+        <h3>${producto.nombre}</h3>
+        <div class="shop-card-price-row">
+          <p class="cur-price">$${producto.precio}.00</p>
+        </div>
+        <button type="button" data-view="${producto.id}">View Product</button>
+      </div>
+    </div>
+  `;
+}
+
+async function loadShopProductos() {
+  try {
+    const respuesta = await fetch('/productos');
+
+    if (!respuesta.ok) {
+      throw new Error('Error al obtener productos');
+    }
+
+    const productos = await respuesta.json();
+    const el = document.getElementById('shop-grid');
+    el.innerHTML = productos.map(apiProductoCardHTML).join('');
+    el.querySelectorAll('[data-view]').forEach((btn) => {
+      btn.addEventListener('click', () => consultarProducto(btn.dataset.view));
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function consultarProducto(id) {
+  try {
+    const respuesta = await fetch(`/productos/${id}`);
+
+    if (!respuesta.ok) {
+      throw new Error('Error al obtener el producto');
+    }
+
+    const producto = await respuesta.json();
+    renderProductoDesdeApi(producto);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function renderProductoDesdeApi(producto) {
+  document.getElementById('page-product').innerHTML = `
+    <div class="product-detail-container">
+      <div class="product-image-col">
+        <img src="${producto.imagen}" alt="${producto.nombre}" />
+      </div>
+      <div class="product-info-col">
+        <div class="breadcrumb">
+          <button class="back-btn" id="producto-api-back" type="button">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to Shop
+          </button>
+        </div>
+        <h1 class="product-title">${producto.nombre}</h1>
+        <p class="product-description">Loaded from GET /productos/${producto.id}</p>
+        <div class="product-price">$${producto.precio}.00</div>
+      </div>
+    </div>
+  `;
+
+  document.querySelectorAll('.page').forEach((el) => el.classList.remove('active'));
+  document.getElementById('page-product').classList.add('active');
+  document.querySelectorAll('.nav-link').forEach((el) => el.classList.remove('active'));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  document.getElementById('producto-api-back').addEventListener('click', () => goToPage('shop'));
 }
 
 // ---------- Home Gallery (accordion, 4 visible) ----------
@@ -676,7 +752,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initNav();
   initModals();
-  initShopFilters();
   initCheckout();
   initHomeGallery();
   initCarousel();
